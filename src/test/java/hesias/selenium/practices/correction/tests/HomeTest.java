@@ -8,9 +8,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class HomeTest extends  BaseTest {
 
     @Test
-    public void testHomePageOpen() {
+    public void testHomePageIsDisplayed() {
         boolean homeIsDisplayed = new HomePage(driver)
                 .open()
+                .isDisplayed();
+
+        assertTrue(homeIsDisplayed);
+    }
+
+    @Test
+    public void testHomePageChangeLanguageToEn() {
+        boolean homeIsDisplayed = new HomePage(driver)
+                .changeLanguage("en")
                 .isDisplayed();
 
         assertTrue(homeIsDisplayed);

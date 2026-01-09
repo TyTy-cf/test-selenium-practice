@@ -1,6 +1,7 @@
 package hesias.selenium.practices.correction.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,6 +39,12 @@ public class BasePage {
         element.click();
         element.clear();
         element.sendKeys(text);
+    }
+
+    protected void keyDown(By locator, Keys key) {
+        WebElement element = waitClick(locator);
+        element.click();
+        element.sendKeys(key);
     }
 
     protected String getText(By locator) {
