@@ -247,4 +247,25 @@ Ce que doit faire la fonction :
 - Tester votre fonction avec le jeu "Theme Hospital"
 
 
+#### Exercice 5.7 : Améliorer la `GamePage`
+
+
+- **Consigne** : Créer une fonction `addGameToCart`
+
+Ce que doit faire la fonction :
+- Elle reprend le comportement de la fonction `goToGame` pour aller sur la page d'un jeu
+- Elle clique sur le bouton "Ajouter au panier"
+
+
+#### Exercice 5.8 : Créer la classe `GameTest`
+
+
+- **Consigne** : Créer une fonction `testAddGameToCart`
+
+Ce que doit faire la fonction :
+- Elle reprend le comportement de la fonction `addGameToCart` de la `GamePage` pour ajouter un jeu au panier
+- Elle doit vérifier que le jeu s'est correctement ajouté
+
+
+
 
