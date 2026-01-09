@@ -3,6 +3,7 @@ package hesias.selenium.practices.correction.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class HomePage extends BasePage {
 
@@ -26,6 +27,8 @@ public class HomePage extends BasePage {
         waitClick(searchBtn).click();
         type(searchInput, gameName);
         keyDown(searchInput, Keys.ENTER);
+
+
         return new SearchResultsPage(driver);
     }
 

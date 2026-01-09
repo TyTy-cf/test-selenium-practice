@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -53,6 +54,10 @@ public class BasePage {
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    public void scrollToElement(By locator) {
+        new Actions(driver).scrollToElement(waitUntil(locator));
     }
 
 }

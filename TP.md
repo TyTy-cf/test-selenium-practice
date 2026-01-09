@@ -267,5 +267,64 @@ Ce que doit faire la fonction :
 - Elle doit vérifier que le jeu s'est correctement ajouté
 
 
+###  Partie 6 : Nouvelle page
+
+
+#### Exercice 6.1 : Créer la classe `WorkPage`
+
+
+- **Consigne** : Créer une fonction `goToJobOfferInput`
+
+Ce que doit faire la fonction :
+- Aller sur la page des offres d'emplois, puis scroller jusqu'à la barre de recherche des offres d'emploi
+
+
+#### Exercice 6.2 : Améliorer la classe `WorkPage`
+
+
+- **Consigne** : Créer une fonction `searchForJobOffer`
+
+Ce que doit faire la fonction :
+- Avoir un paramètre de type String, de nom "job"
+- Reprendre le comportement de la fonction `goToJobOfferInput`
+- Ecrire le paramètre "job" dans la barre de recherche
+
+
+#### Exercice 6.3 : Améliorer la classe `HomePage`
+
+
+- **Consigne** : Créer une fonction `goToJobOfferPage`
+
+Ce que doit faire la fonction :
+- Cliquer sur le dropdown "À propos"
+- Puis cliquer "Rejoindre notre équipe"
+- La fonction doit retourner un objet de type `WorkPage`
+
+
+#### Exercice 6.4 : Améliorer la classe `HomeTest`
+
+
+- **Consigne** : Créer une fonction `testGoToJobOfferPage`
+
+Ce que doit faire la fonction :
+- Tester si l'on peut bien accéder à la base `WorkPage`
+
+
+#### Exercice 6.5 : Créer la classe `WorkTest`
+
+
+- **Consigne** : Créer une fonction `testSearchForJobOffer`
+
+Ce que doit faire la fonction :
+- Tester si l'on peut bien accéder à l'input de recherche d'offre d'emploi et saisir "backend" dedans
+- Il faudra modifier `WorkPage` pour cet exercice
+
+
+
+
+
+
+
+
 
 
