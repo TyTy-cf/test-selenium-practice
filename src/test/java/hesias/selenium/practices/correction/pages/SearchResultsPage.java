@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class SearchResultsPage extends BasePage {
 
     private final By titlePageHeader = By.cssSelector("h1[selenium-id='pageHeader']");
-    private final By firstGameTitle = By.xpath("//product-title[@selenium-id='productTitle'][1]//span");
+    private final By firstGameTitle = By.xpath("//product-tile[1]//product-title[@selenium-id='productTitle']/span");
 
     private final By checkBoxGoodOldGames = By.cssSelector("input[name='onlypreservedgames']");
     private final By spanFilterClearing = By.xpath("//span[@selenium-id='filterClearingItemLabel'][contains(text(), 'GOOD OLD GAMES')]");
