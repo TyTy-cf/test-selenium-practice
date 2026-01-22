@@ -14,12 +14,13 @@ public class WorkPage extends BasePage {
         super(driver);
     }
 
-    public void goToJobOfferInput() {
+    public WorkPage goToJobOfferInput() {
         goTo(ROOT_URL + "work");
         WebElement we = driver.findElement(inputSearchJobOffer);
         new Actions(driver)
                 .scrollToElement(we)
                 .perform();
+        return this;
     }
 
     public void searchForJobOffer(String job) {

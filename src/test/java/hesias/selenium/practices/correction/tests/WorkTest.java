@@ -16,9 +16,10 @@ public class WorkTest extends  BaseTest {
 
     @Test
     @Story("As an user, I want to check the job offer")
-    public void testResetFilters() {
+    public void goToJobOfferAndSearchForAJob() {
         new WorkPage(driver)
-                .goToJobOfferInput();
+                .goToJobOfferInput()
+                .searchForJobOffer("Engin");
     }
 
 }
