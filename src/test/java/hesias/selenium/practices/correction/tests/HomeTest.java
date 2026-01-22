@@ -49,12 +49,12 @@ public class HomeTest extends  BaseTest {
     @Story("As an user, I want to change the website to english")
     public void testHomePageChangeLanguageToEn() {
         boolean homeIsDisplayed = new HomePage(driver)
-                .changeLanguage("en")
+                .changeLanguage("en", true)
                 .isDisplayed();
 
         assertTrue(homeIsDisplayed);
 
-        new HomePage(driver).changeLanguage("fr");
+        new HomePage(driver).changeLanguage("fr", false);
     }
 
 }

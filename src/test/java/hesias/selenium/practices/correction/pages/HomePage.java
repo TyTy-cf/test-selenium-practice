@@ -36,9 +36,11 @@ public class HomePage extends BasePage {
         return new SearchResultsPage(driver);
     }
 
-    public HomePage changeLanguage(String locale) {
+    public HomePage changeLanguage(String locale, boolean refuseCookies) {
         goTo(ROOT_URL.replace("fr",  locale));
-        refuseCookies();
+        if (refuseCookies) {
+            refuseCookies();
+        }
         return this;
     }
 
