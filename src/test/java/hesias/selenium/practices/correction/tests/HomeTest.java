@@ -25,16 +25,6 @@ public class HomeTest extends  BaseTest {
     }
 
     @Test
-    @Story("As an user, I want to change the website to english")
-    public void testHomePageChangeLanguageToEn() {
-        boolean homeIsDisplayed = new HomePage(driver)
-                .changeLanguage("en")
-                .isDisplayed();
-
-        assertTrue(homeIsDisplayed);
-    }
-
-    @Test
     @Story("As an user, I want to use the slider to the left")
     public void testSliderLeft() {
         boolean lastElementIsActive = new HomePage(driver)
@@ -53,6 +43,18 @@ public class HomeTest extends  BaseTest {
                 .isDisplayed();
 
         assertTrue(isOnGamePage);
+    }
+
+    @Test
+    @Story("As an user, I want to change the website to english")
+    public void testHomePageChangeLanguageToEn() {
+        boolean homeIsDisplayed = new HomePage(driver)
+                .changeLanguage("en")
+                .isDisplayed();
+
+        assertTrue(homeIsDisplayed);
+
+        new HomePage(driver).changeLanguage("fr");
     }
 
 }
