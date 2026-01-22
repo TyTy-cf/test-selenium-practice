@@ -10,7 +10,7 @@ public class SearchResultsPage extends BasePage {
 
     private final By checkBoxGoodOldGames = By.cssSelector("input[name='onlypreservedgames']");
     private final By spanFilterClearing = By.xpath("//span[@selenium-id='filterClearingItemLabel'][contains(text(), 'GOOD OLD GAMES')]");
-    private final By spanResetFilters = By.xpath("//filter-title[contains(text(), ' Supprimer les filtres ')]//ancestor::div[@selenium-id='filterClearingItem']");
+    private final By spanResetFilters = By.cssSelector("[selenium-id='filterClearingItem']");
 
     public SearchResultsPage(WebDriver driver) {
         super(driver);
