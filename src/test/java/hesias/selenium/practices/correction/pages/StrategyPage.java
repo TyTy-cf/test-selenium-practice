@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 
 public class StrategyPage extends AbstractShopPage {
 
-    private final By epochFilters = By.cssSelector("tabbed-section-header[selenium-id='tabbedSectionHeader']");
     private final By forYouSelection = By.cssSelector("section-header[selenium-id='tagsForYouSectionHeader']");
     private final String epochFilter = "//div[@selenium-id='tabbedSectionHeaderTab'][contains(text(), ' %s ')]";
+    private final By displayGames = By.cssSelector("h1[selenium-id='pageHeader']");
 
     public StrategyPage(WebDriver driver) {
         super(driver);
@@ -27,6 +27,11 @@ public class StrategyPage extends AbstractShopPage {
         String classCss = we.getAttribute("class");
         if (classCss == null) return false;
         return classCss.contains("tabbed-section-header__tab--active");
+    }
+
+    public String getPageHeaderTitle() {
+        scrollToElement(displayGames);
+        return getText(displayGames);
     }
 
 }

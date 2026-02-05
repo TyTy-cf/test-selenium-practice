@@ -64,4 +64,46 @@ public class BoutiqueTest extends  BaseTest {
         assertNotNull(sp.getFirstGameTitle());
     }
 
+    @Test
+    @Story("As the user I want to change the epoch filter inside strategy games")
+    @Description("Verify that the user can change the epoch filter to 2010 then to 90 inside strategy games")
+    @Severity(SeverityLevel.NORMAL)
+    public void testFilterBy90Epoch() {
+        StrategyPage sp = (new HomePage(driver))
+                .openShopDropdown()
+                .goToStrategy()
+                .selectEpoch("2010")
+                .selectEpoch("90");
+
+        assertTrue(sp.isFilterEpochActive("90"));
+        assertNotNull(sp.getFirstGameTitle());
+    }
+
+    @Test
+    @Story("As the user I want to scroll to the available games")
+    @Description("Verify that the user can change the epoch filter to 90 then scroll to the displayed games")
+    @Severity(SeverityLevel.NORMAL)
+    public void testScrollToDisplayGames() {
+        String pht = (new HomePage(driver))
+                .openShopDropdown()
+                .goToStrategy()
+                .selectEpoch("90")
+                .getPageHeaderTitle();
+
+        assertEquals("Affichage de 2822 jeux", pht);
+    }
+
+    @Test
+    @Story("As the user I want to scroll to the likeable tags")
+    @Description("Verify that the user can scroll to the likeable tags")
+    @Severity(SeverityLevel.NORMAL)
+    public void testScrollToLikableTags() {
+        StrategyPage sp = (StrategyPage) (new HomePage(driver))
+                .openShopDropdown()
+                .goToStrategy()
+                .scrollToLikeableTags();
+
+        assertEquals(5, sp.getTagsCount());
+    }
+
 }
