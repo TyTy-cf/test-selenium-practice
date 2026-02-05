@@ -518,6 +518,79 @@ Ce que doit faire le test :
 - Vérifier que le filtre est actif et que le filtre "90" n'est plus actif
 
 
+###  Partie 10 : Tests "Besoin d'aide"
+
+
+#### Exercice 10.1 : Améliorer `HomePage.java`
+
+
+- **Consigne** : Ajouter des méthodes pour naviguer dans le menu "Besoin d'aide"
+
+
+| Méthode                       | Paramètres | Rôle                                                    | Retour           |
+|-------------------------------| ---------- |---------------------------------------------------------|------------------|
+| `openNeedHelpDropdown()`      | -          | Ouvre le dropdown "Besoin d'aide"                       | `HomePage`       |
+| `goToTechnicalIssueOnAGame()` | -          | Clique sur "Problème technique sur un jeu" dans le menu | `AssistancePage` |
+
+
+- Attributs de la classe :
+  - `private final By helpDropdown` : pour localiser le menu "Besoin d'aide"
+  - `private final By technicalIssueOnAGame` : pour localiser le lien "Problème technique sur un jeu"
+
+
+#### Exercice 10.2 : Améliorer `AssistancePage.java`
+
+
+- **Consigne** : Ajouter des méthodes et locator pour naviguer dans la page du centre d'assistance de gog
+
+
+| Méthode                         | Paramètres    | Rôle                                        | Retour       |
+|---------------------------------|---------------|---------------------------------------------|--------------|
+| `openLanguageSelect()`          | -             | Ouvre le dropdown de sélection de la langue | `AssistancePage` |
+| `selectLanguage(String locale)` | String locale | Clique sur le lien de la locale demandée    | `AssistancePage` |
+
+
+- Attributs de la classe :
+  - `private final By languageSelect` : pour localiser le menu du choix de la langue
+  - `private final By titleAssistance` : pour localiser le titre de la page d'assistance (le h1 : PROBLÈME TECHNIQUE SUR UN JEU)
+  - `private final String languageItem` : url de la langue, vous remplacerez le choix de la langue par "%s" pour inclure la locale passée en paramètre, via la méthode selectLanguage
+
+
+#### Exercice 10.3 : Test navigation "Besoin d'aide"
+
+
+- **Consigne** : Créer une classe de test `AssistanceTest`
+- **Consigne** : Créer un test `testGoToAssistancePage` dans `AssistanceTest`
+
+Ce que doit faire le test :
+- Ouvrir la page d'accueil
+- Ouvrir le dropdown "Besoin d'aide"
+- Cliquer sur "Problème technique sur un jeu"
+- Vérifier que le titre de la page d'assistance s'affiche correctement
+
+
+#### Exercice 10.4 : Test changement de langue
+
+
+- **Consigne** : Créer une classe de test `AssistanceTest`
+- **Consigne** : Créer un test `testChangeLanguage` dans `AssistanceTest`
+
+Ce que doit faire le test :
+- Ouvrir la page d'accueil
+- Ouvrir le dropdown "Besoin d'aide"
+- Cliquer sur "Problème technique sur un jeu"
+- Changer la langue de la page en "Polski"
+- Vérifier que le titre est bien "Problemy techniczne z grami"
+- Vérifier que "Polski" n'apparaît plus dans le select des langues
+
+
+
+
+
+
+
+
+
 
 
 
