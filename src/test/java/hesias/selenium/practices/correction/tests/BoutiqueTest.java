@@ -2,6 +2,7 @@ package hesias.selenium.practices.correction.tests;
 
 import hesias.selenium.practices.correction.pages.HomePage;
 import hesias.selenium.practices.correction.pages.OpenWorldPage;
+import hesias.selenium.practices.correction.pages.StrategyPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +35,33 @@ public class BoutiqueTest extends  BaseTest {
 
         assertNotNull(owp.getFirstGameTitle());
         assertEquals(8, owp.getGamesCount());
+    }
+
+    @Test
+    @Story("As the user I want to go to the strategy page")
+    @Description("Verify that the user can go to the strategy page")
+    @Severity(SeverityLevel.NORMAL)
+    public void testGoToStrategy() {
+        StrategyPage sp = (new HomePage(driver))
+                .openShopDropdown()
+                .goToStrategy();
+
+        assertTrue(sp.isDisplayed());
+        assertEquals(("Jeux de Stratégie").toUpperCase(), sp.getPageTitle());
+    }
+
+    @Test
+    @Story("As the user I want to change the epoch filter inside strategy games")
+    @Description("Verify that the user can change the epoch filter to 2010 inside strategy games")
+    @Severity(SeverityLevel.NORMAL)
+    public void testFilterBy2010Epoch() {
+        StrategyPage sp = (new HomePage(driver))
+                .openShopDropdown()
+                .goToStrategy()
+                .selectEpoch("2010");
+
+        assertTrue(sp.isFilterEpochActive("2010"));
+        assertNotNull(sp.getFirstGameTitle());
     }
 
 }

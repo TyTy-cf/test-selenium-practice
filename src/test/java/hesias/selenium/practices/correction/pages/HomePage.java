@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
 
     private final By shopDropdown = By.cssSelector("div[hook-test='menuStore']");
     private final By openWorldLink = By.cssSelector("div[hook-test='storeMenuopen-world']");
-    private final By strategyLink  = By.cssSelector("div[hook-test='storeMenustrategyButton']");
+    private final By strategyLink  = By.cssSelector("div[hook-test='storeMenustrategy']");
 
     public HomePage(WebDriver driver) {
         super(driver);
