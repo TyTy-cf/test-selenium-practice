@@ -21,6 +21,9 @@ public class HomePage extends BasePage {
     private final By openWorldLink = By.cssSelector("div[hook-test='storeMenuopen-world']");
     private final By strategyLink  = By.cssSelector("div[hook-test='storeMenustrategy']");
 
+    private final By helpDropdown  = By.cssSelector("div[hook-test='menuSupport']");
+    private final By technicalIssueOnAGame = By.cssSelector("div[hook-test='communityMenu-game-technical-issues']");
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -73,6 +76,17 @@ public class HomePage extends BasePage {
     public StrategyPage goToStrategy() {
         waitClick(strategyLink).click();
         return new StrategyPage(driver);
+    }
+
+    public HomePage openNeedHelpDropdown() {
+        open();
+        moveToElement(helpDropdown);
+        return this;
+    }
+
+    public AssistancePage goToTechnicalIssueOnAGame() {
+        waitClick(technicalIssueOnAGame).click();
+        return new AssistancePage(driver);
     }
 
     public boolean isDisplayed() {
