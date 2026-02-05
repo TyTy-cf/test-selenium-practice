@@ -17,6 +17,10 @@ public class HomePage extends BasePage {
     private final By itemSliderContainer = By.cssSelector("item-slider[selenium-id='productsSectionSlider']");
     private final By firstItemSlider = By.cssSelector("a[selenium-id='productTile']");
 
+    private final By shopDropdown = By.cssSelector("div[hook-test='menuStore']");
+    private final By openWorldLink = By.cssSelector("div[hook-test='storeMenuopen-world']");
+    private final By strategyLink  = By.cssSelector("div[hook-test='storeMenustrategyButton']");
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -53,6 +57,22 @@ public class HomePage extends BasePage {
         scrollToElement(itemSliderContainer);
         waitClick(firstItemSlider).click();
         return new GamePage(driver);
+    }
+
+    public HomePage openShopDropdown() {
+        open();
+        moveToElement(shopDropdown);
+        return this;
+    }
+
+    public OpenWorldPage goToOpenWorld() {
+        waitClick(openWorldLink).click();
+        return new OpenWorldPage(driver);
+    }
+
+    public StrategyPage goToStrategy() {
+        waitClick(strategyLink).click();
+        return new StrategyPage(driver);
     }
 
     public boolean isDisplayed() {

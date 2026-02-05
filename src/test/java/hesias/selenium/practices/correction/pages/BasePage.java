@@ -59,7 +59,11 @@ public class BasePage {
     }
 
     public void scrollToElement(By locator) {
-        new Actions(driver).scrollToElement(waitUntil(locator));
+        new Actions(driver).scrollToElement(waitUntil(locator)).perform();
+    }
+
+    public void moveToElement(By locator) {
+        new Actions(driver).moveToElement(waitUntil(locator)).perform();
     }
 
     public void refuseCookies() {
