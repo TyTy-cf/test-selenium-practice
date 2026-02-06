@@ -2,13 +2,19 @@ package hesias.selenium.practices.correction.pages;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
+import java.util.Objects;
 
 public class AssistancePage extends BasePage {
 
     private final By titleAssistance = By.cssSelector("h1.h2");
-    private final By languageSelect = By.cssSelector("span.dropdown-menu");
-    private String languageItem = "//a[contains(@href, '%s')]";
+    private final By languageSelect = By.cssSelector("div.dropdown.language-selector");
+    private final By languageItems = By.xpath("//a[@role='menuitem']");
 
     public AssistancePage(WebDriver driver) {
         super(driver);
@@ -20,7 +26,17 @@ public class AssistancePage extends BasePage {
 
     public AssistancePage selectLanguage(String locale) {
         waitClick(languageSelect).click();
-        waitClick(By.xpath(String.format(languageItem, locale))).click();
+        try {
+            List<WebElement> webElementList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(languageItems));
+            for(WebElement webElement : webElementList) {
+                if (Objects.requireNonNull(webElement.getAttribute("href")).contains(locale)) {
+                    webElement.click();
+                }
+            }
+        } catch(StaleElementReferenceException ex)
+        {
+            return this;
+        }
         return this;
     }
 
