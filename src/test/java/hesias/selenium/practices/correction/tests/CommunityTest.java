@@ -25,4 +25,18 @@ public class CommunityTest extends  BaseTest {
         assertTrue(communityMenuIsDisplayed);
     }
 
+
+    @Test
+    @Story("As an user, I want to access the forum page")
+    @Severity(SeverityLevel.NORMAL)
+    public void testGoToForumPage()
+    {
+        boolean forumPageIsDisplayed = new HomePage(driver)
+                .open()
+                .hoverCommunityMenu()
+                .goToForumPage()
+                .isDisplayed();
+
+        assertTrue(forumPageIsDisplayed);
+    }
 }

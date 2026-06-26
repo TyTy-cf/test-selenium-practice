@@ -123,4 +123,10 @@ public class HomePage extends BasePage {
             return false;
         }
     }
+
+    public ForumPage goToForumPage()
+    {
+        waitClick(linkAllForum).click();
+        return new ForumPage(driver);
+    }
 }
