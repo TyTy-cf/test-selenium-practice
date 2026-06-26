@@ -1,5 +1,6 @@
 package hesias.selenium.practices.correction.tests;
 
+import hesias.selenium.practices.correction.pages.ForumPage;
 import hesias.selenium.practices.correction.pages.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -7,6 +8,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Feature("Community")
@@ -38,5 +40,18 @@ public class CommunityTest extends  BaseTest {
                 .isDisplayed();
 
         assertTrue(forumPageIsDisplayed);
+    }
+
+    @Test
+    @Story("As an user, I want to use forum wishlist dropdown")
+    @Severity(SeverityLevel.MINOR)
+    public void testWishlistDropdown()
+    {
+        ForumPage page = new ForumPage(driver).open();
+        assertTrue(page.isWishListOpened());
+
+        assertFalse(page.clickWishList().isWishListOpened());
+
+        assertTrue(page.clickWishList().isWishListOpened());
     }
 }

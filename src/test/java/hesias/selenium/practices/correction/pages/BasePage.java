@@ -13,6 +13,7 @@ import java.time.Duration;
 public class BasePage {
 
     static final String ROOT_URL = "https://www.gog.com/fr/";
+    static final String FORUM_URL = "https://www.gog.com/forum";
 
     protected final By refuseCookies = By.cssSelector("button#CybotCookiebotDialogBodyButtonDecline");
 
