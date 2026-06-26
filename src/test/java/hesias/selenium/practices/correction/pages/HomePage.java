@@ -7,10 +7,15 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
     private final By linkHome = By.cssSelector("a.menu__logo");
-    private final By menu = By.className("menu__container");
+    private final By headerCommunityMenu = By.cssSelector("div[hook-test='menuCommunity']");
+
+    private final By linkAllForums = By.cssSelector("div[hook-test='communityMenu-all-forums']");
+    private final By linkGeneralDiscussionForum = By.cssSelector("div[hook-test='communityMenu-general-discussion-forum']");
+    private final By linkForumReplies = By.cssSelector("div[hook-test='communityMenu-forum-replies']");
 
     private final By searchBtn = By.cssSelector("a[hook-test='menuSearch']");
     private final By searchInput = By.cssSelector("input[hook-test='menuSearchInput']");
+    private final By linkForum = By.cssSelector("a[href='/forum']");
 
     private final By sliderLeftArrow = By.cssSelector("div[selenium-id='SliderArrowPrev']");
     private final By lastSpanSwiper = By.xpath("//swiper[@selenium-id='bigSpotSlider']//.//span[last()]");
@@ -91,21 +96,23 @@ public class HomePage extends BasePage {
     }
 
     public boolean isDisplayed() {
-        try {
-            waitUntil(linkHome);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+        return isDisplayed(linkHome);
     }
 
-    public boolean hoverMenu() {
-        try {
-            moveToElement(menu);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+    public HomePage hoverCommunityMenu() {
+        moveToElement(headerCommunityMenu);
+        return this;
+    }
+
+    public boolean isCommunityMenuDisplayed() {
+        return isDisplayed(linkAllForums)
+            &&  isDisplayed(linkGeneralDiscussionForum)
+            &&  isDisplayed(linkForumReplies);
+    }
+
+    public ForumPage goToForumPage() {
+        waitClick(linkForum).click();
+        return new ForumPage(driver);
     }
 
 }

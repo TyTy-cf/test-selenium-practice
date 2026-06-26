@@ -1,5 +1,6 @@
 package hesias.selenium.practices.correction.tests;
 
+import hesias.selenium.practices.correction.pages.ForumPage;
 import hesias.selenium.practices.correction.pages.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -7,6 +8,8 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Feature("Home page")
@@ -58,13 +61,26 @@ public class HomeTest extends  BaseTest {
     }
 
     @Test
-    @Story("As an user, I want to hover community menu")
-    public void testHomePageHoverCummunityMenu() {
-        boolean canHoverMenu = new HomePage(driver)
+    @Story("As an user, I want to access the community menu")
+    @Severity(SeverityLevel.NORMAL)
+    public void testCommunityMenuIsDisplayed() {
+        boolean communityMenuIsDisplayed = new HomePage(driver)
                 .open()
-                .hoverMenu();
+                .hoverCommunityMenu()
+                .isCommunityMenuDisplayed();
 
-        assertTrue(canHoverMenu);
+        assertTrue(communityMenuIsDisplayed);
     }
 
+    // @Test
+    // @Story("As an user, I want to visit forum page")
+    // @Severity(SeverityLevel.NORMAL)
+    // public void testForumAccessOk() {
+    //     ForumPage canGoToForumPage = new HomePage(driver)
+    //             .open()
+    //             .hoverCommunityMenu()
+    //             .goToForumPage();
+
+    
+    // }
 }
