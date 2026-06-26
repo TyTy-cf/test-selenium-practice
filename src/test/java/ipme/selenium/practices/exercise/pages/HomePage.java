@@ -3,10 +3,13 @@ package ipme.selenium.practices.exercise.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import hesias.selenium.practices.correction.pages.OpenWorldPage;
+
 public class HomePage extends BasePage {
 
 	private final By linkHome = By.cssSelector("a.menu__logo");
 	private final By linkBlog = By.cssSelector("a[href='/blog']");
+	private final By linkforum = By.cssSelector("a[href='/forum']");
 	private final By shopDropdown = By.cssSelector("div[hook-test='menuStore']");
 	private final By helpDropdown = By.cssSelector("div[hook-test='menuSupport']");
 	private final By communityDropdown = By.cssSelector("div[hook-test='menuCommunity']");
@@ -45,6 +48,11 @@ public class HomePage extends BasePage {
 		open();
 		moveToElement(communityDropdown);
 		return this;
+	}
+
+	public AllForumsPage goToAllForumsPage() {
+		waitClick(linkforum).click();
+		return new AllForumsPage(driver);
 	}
 
 	public boolean isLinkBlogVisible() {

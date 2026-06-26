@@ -35,4 +35,16 @@ public class HomeTest extends BaseTest {
 		assertTrue(linkBlogIsVisible);
 	}
 
+	@Test
+	@Story("As a user, I want to navigate to the forum page")
+	@Severity(SeverityLevel.MINOR)
+	public void testForumPageIsAccessible() {
+		boolean forumIsDisplayed = new HomePage(driver)
+				.openCommunityDropdown()
+				.goToAllForumsPage()
+				.isDisplayed();
+
+		assertTrue(forumIsDisplayed);
+	}
+
 }
