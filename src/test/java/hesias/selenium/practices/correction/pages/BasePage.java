@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BasePage {
+public class BasePage  {
 
     static final String ROOT_URL = "https://www.gog.com/fr/";
 

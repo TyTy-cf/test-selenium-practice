@@ -120,4 +120,8 @@ public class HomePage extends BasePage {
         }
     }
 
+    public ForumPage clickOnForumAllLinks(){
+        waitClick(communityForumLink).click();
+        return new ForumPage(driver);
+    }
 }

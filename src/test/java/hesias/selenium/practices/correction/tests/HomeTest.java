@@ -66,4 +66,15 @@ public class HomeTest extends  BaseTest {
 
         assertTrue(areCommunityDropdownLinksDisplayed);
     }
+
+    @Test
+    @Story("As an user, I want to consult the Forum Page")
+    public void testForumPageRedirectOnClick(){
+        boolean isForumPageDisplayed = new HomePage(driver)
+                .goToCommunityDropDown()
+                .clickOnForumAllLinks()
+                .isDisplayed();
+
+        assertTrue(isForumPageDisplayed);
+    }
 }
