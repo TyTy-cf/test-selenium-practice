@@ -1,4 +1,4 @@
-package hesias.ipme.selenium.practices.exercise.tests;
+package ipme.selenium.practices.exercise.tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;

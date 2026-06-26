@@ -1,4 +1,4 @@
-package hesias.ipme.selenium.practices.exercise.tests;
+package ipme.selenium.practices.exercise.tests;
 
 import hesias.selenium.practices.correction.pages.HomePage;
 import io.qameta.allure.Feature;

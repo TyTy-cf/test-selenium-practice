@@ -1,4 +1,4 @@
-package hesias.ipme.selenium.practices.exercise.pages;
+package ipme.selenium.practices.exercise.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
