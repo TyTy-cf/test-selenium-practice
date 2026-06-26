@@ -7,8 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +14,6 @@ import java.util.Map;
 public class BaseTest {
 
     protected WebDriver driver;
-    protected WebDriverWait wait;
 
     @BeforeEach
     protected void setUp() {
@@ -59,24 +56,6 @@ public class BaseTest {
     @Attachment(value = "Screenshot for the test", type = "image/png", fileExtension = ".png")
     public byte[] saveScreenshot() {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
-
-    protected WebElement waitUntil(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
-    protected WebElement waitClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-
-    protected String getText(By locator) {
-        return waitUntil(locator).getText();
-    }
-
-    protected void type(By locator, String text) {
-        WebElement element = waitUntil(locator);
-        element.clear();
-        element.sendKeys(text);
     }
 
 }

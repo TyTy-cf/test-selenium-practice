@@ -8,7 +8,7 @@ public class SearchResultsPage extends BasePage {
     private final By titlePageHeader = By.cssSelector("h1[selenium-id='pageHeader']");
     private final By firstGameTitle = By.cssSelector("div[selenium-id='productTileGameTitle']");
 
-    private final By checkBoxGoodOldGames = By.cssSelector("input[name='onlypreservedgames']");
+    private final By checkBoxGoodOldGames = By.cssSelector("filter-option[selenium-id='showOnlyPreservedGamesCheckbox']");
     private final By spanFilterClearing = By.xpath("//span[@selenium-id='filterClearingItemLabel'][contains(text(), 'GOOD OLD GAMES')]");
     private final By spanResetFilters = By.cssSelector("[selenium-id='filterClearingItem']");
 
