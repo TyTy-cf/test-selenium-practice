@@ -29,7 +29,7 @@ public class BasePage {
 		return this;
 	}
 
-	protected WebElement waitUntil(By locator) {
+	protected WebElement waitVisible(By locator) {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
@@ -51,7 +51,7 @@ public class BasePage {
 	}
 
 	protected String getText(By locator) {
-		return waitUntil(locator).getText();
+		return waitVisible(locator).getText();
 	}
 
 	public String getCurrentUrl() {
@@ -59,11 +59,11 @@ public class BasePage {
 	}
 
 	public void scrollToElement(By locator) {
-		new Actions(driver).scrollToElement(waitUntil(locator)).perform();
+		new Actions(driver).scrollToElement(waitVisible(locator)).perform();
 	}
 
 	public void moveToElement(By locator) {
-		new Actions(driver).moveToElement(waitUntil(locator)).perform();
+		new Actions(driver).moveToElement(waitVisible(locator)).perform();
 	}
 
 	public void refuseCookies() {

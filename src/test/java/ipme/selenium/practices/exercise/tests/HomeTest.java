@@ -1,6 +1,6 @@
 package ipme.selenium.practices.exercise.tests;
 
-import hesias.selenium.practices.correction.pages.HomePage;
+import ipme.selenium.practices.exercise.pages.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -22,6 +22,17 @@ public class HomeTest extends BaseTest {
 				.isDisplayed();
 
 		assertTrue(homeIsDisplayed);
+	}
+
+	@Test
+	@Story("As a user, I want to see the community dropdown menu")
+	@Severity(SeverityLevel.MINOR)
+	public void testCommunityDropdownIsVisible() {
+		boolean linkBlogIsVisible = new HomePage(driver)
+				.openCommunityDropdown()
+				.isLinkBlogVisible();
+
+		assertTrue(linkBlogIsVisible);
 	}
 
 }

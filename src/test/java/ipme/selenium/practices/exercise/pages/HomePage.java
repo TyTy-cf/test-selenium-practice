@@ -6,8 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
 	private final By linkHome = By.cssSelector("a.menu__logo");
+	private final By linkBlog = By.cssSelector("a[href='/blog']");
 	private final By shopDropdown = By.cssSelector("div[hook-test='menuStore']");
 	private final By helpDropdown = By.cssSelector("div[hook-test='menuSupport']");
+	private final By communityDropdown = By.cssSelector("div[hook-test='menuCommunity']");
 
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -39,9 +41,19 @@ public class HomePage extends BasePage {
 		return this;
 	}
 
+	public HomePage openCommunityDropdown() {
+		open();
+		moveToElement(communityDropdown);
+		return this;
+	}
+
+	public boolean isLinkBlogVisible() {
+		return waitVisible(linkBlog).isDisplayed();
+	}
+
 	public boolean isDisplayed() {
 		try {
-			waitUntil(linkHome);
+			waitVisible(linkHome);
 			return true;
 		} catch (Exception e) {
 			return false;
