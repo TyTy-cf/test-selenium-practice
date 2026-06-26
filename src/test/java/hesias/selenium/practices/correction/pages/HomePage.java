@@ -24,6 +24,11 @@ public class HomePage extends BasePage {
     private final By helpDropdown  = By.cssSelector("div[hook-test='menuSupport']");
     private final By technicalIssueOnAGame = By.cssSelector("div[hook-test='communityMenu-game-technical-issues']");
 
+    private final By communityDropdown = By.cssSelector("div[hook-test='menuCommunity']");
+    private final By communityForumLink = By.cssSelector("div[hook-test='communityMenu-all-forums']");
+    private final By communityForumGeneralTalks = By.cssSelector("div[hook-test='communityMenu-general-discussion-forum']");
+    private final By communityForumGeneralAnswers = By.cssSelector("div[hook-test='communityMenu-forum-replies']");
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -92,6 +97,23 @@ public class HomePage extends BasePage {
     public boolean isDisplayed() {
         try {
             waitUntil(linkHome);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public HomePage goToCommunityDropDown(){
+        open();
+        moveToElement(communityDropdown);
+        return this;
+    }
+
+    public boolean isCommunityDropdownLinkDisplayed(){
+        try {
+            waitUntil(communityForumLink);
+            waitUntil(communityForumGeneralTalks);
+            waitUntil(communityForumGeneralAnswers);
             return true;
         } catch (Exception e) {
             return false;

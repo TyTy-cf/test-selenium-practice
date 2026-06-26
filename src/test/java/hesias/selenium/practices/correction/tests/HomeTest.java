@@ -57,4 +57,13 @@ public class HomeTest extends  BaseTest {
         new HomePage(driver).changeLanguage("fr", false);
     }
 
+    @Test
+    @Story("As an user, I want to consult the community Tab")
+    public void testCommunityHoverTab(){
+        boolean areCommunityDropdownLinksDisplayed = new HomePage(driver)
+                .goToCommunityDropDown()
+                .isCommunityDropdownLinkDisplayed();
+
+        assertTrue(areCommunityDropdownLinksDisplayed);
+    }
 }
