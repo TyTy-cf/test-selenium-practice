@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
     private final By linkHome = By.cssSelector("a.menu__logo");
+    private final By menu = By.className("menu__container");
 
     private final By searchBtn = By.cssSelector("a[hook-test='menuSearch']");
     private final By searchInput = By.cssSelector("input[hook-test='menuSearchInput']");
@@ -92,6 +93,15 @@ public class HomePage extends BasePage {
     public boolean isDisplayed() {
         try {
             waitUntil(linkHome);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean hoverMenu() {
+        try {
+            moveToElement(menu);
             return true;
         } catch (Exception e) {
             return false;

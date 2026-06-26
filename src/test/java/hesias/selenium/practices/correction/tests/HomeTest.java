@@ -57,4 +57,14 @@ public class HomeTest extends  BaseTest {
         new HomePage(driver).changeLanguage("fr", false);
     }
 
+    @Test
+    @Story("As an user, I want to hover community menu")
+    public void testHomePageHoverCummunityMenu() {
+        boolean canHoverMenu = new HomePage(driver)
+                .open()
+                .hoverMenu();
+
+        assertTrue(canHoverMenu);
+    }
+
 }
