@@ -70,4 +70,13 @@ public class BasePage {
         waitClick(refuseCookies).click();
     }
 
+    protected boolean isDisplayed(By locator) {
+        try {
+            waitUntil(locator);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

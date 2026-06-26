@@ -57,4 +57,16 @@ public class HomeTest extends  BaseTest {
         new HomePage(driver).changeLanguage("fr", false);
     }
 
+    @Test
+    @Story("As an user, I want to access the community menu")
+    @Severity(SeverityLevel.NORMAL)
+    public void testCommunityMenuIsDisplayed() {
+        boolean communityMenuIsDisplayed = new HomePage(driver)
+                .open()
+                .hoverCommunityMenu()
+                .isCommunityMenuDisplayed();
+
+        assertTrue(communityMenuIsDisplayed);
+    }
+
 }
