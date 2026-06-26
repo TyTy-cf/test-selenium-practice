@@ -3,6 +3,8 @@ package hesias.selenium.practices.correction.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class HomePage extends BasePage {
 
@@ -23,6 +25,12 @@ public class HomePage extends BasePage {
 
     private final By helpDropdown  = By.cssSelector("div[hook-test='menuSupport']");
     private final By technicalIssueOnAGame = By.cssSelector("div[hook-test='communityMenu-game-technical-issues']");
+
+    private final By communityMenu = By.cssSelector("div[hook-test='menuCommunity']");
+    private final By linkAllForum = By.cssSelector("div[hook-test='communityMenu-all-forums']");
+    private final By linkGeneralDiscussion = By.cssSelector("div[hook-test='communityMenu-general-discussion-forum']");
+    private final By linkForumReplies = By.cssSelector("div[hook-test='communityMenu-forum-replies']");
+
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -98,4 +106,21 @@ public class HomePage extends BasePage {
         }
     }
 
+    public HomePage hoverCommunityMenu()
+    {
+        moveToElement(communityMenu);
+        return this;
+    }
+
+    public boolean isCommunityMenuDisplayed()
+    {
+        try {
+            waitUntil(linkAllForum);
+            waitUntil(linkGeneralDiscussion);
+            waitUntil(linkForumReplies);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
